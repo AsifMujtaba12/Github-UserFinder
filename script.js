@@ -18,6 +18,8 @@ const getUserName = async (username) => {
     const userData = await profileData.json();
     displayUserData(userData);
     document.querySelector("#username").value = "";
+    // Store user data in localStorage 
+    localStorage.setItem("userData", JSON.stringify(userData));
     // repos
     fetchRepoData(username);
     // displayUserData(userData,repoData);
@@ -40,6 +42,8 @@ const fetchRepoData= async (username) => {
   const repoData = await reposData.json();
   // console.log(repoData);
   displayRepoData(repoData);
+  // Store repository data in localStorage 
+  localStorage.setItem("repoData", JSON.stringify(repoData));
 }catch(error) {
   console.error("Error:", error);
   alert("An error occurred while fetching repository data");
@@ -91,3 +95,16 @@ function displayRepoData(repoData) {
     `
   });
 }
+// Load data from localStorage on page load
+document.addEventListener("DOMContentLoaded", () => {
+  const storedUserData = localStorage.getItem("userData");
+  const storedRepoData = localStorage.getItem("repoData");
+
+  if (storedUserData) {
+    displayUserData(JSON.parse(storedUserData));
+  }
+
+  if (storedRepoData) {
+    displayRepoData(JSON.parse(storedRepoData));
+  }
+});
