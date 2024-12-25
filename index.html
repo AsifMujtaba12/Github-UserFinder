@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub User Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body class="bg-gray-200 flex items-center justify-center h-full w-full mt-40 font-sans font-medium">
+    <div class="container p-4 bg-white lg:w-1/2 w-full sm:w-2/3  rounded-lg flex flex-col gap-10">
+        <h1 class="text-3xl font-bold text-center mb-4">GitHub User Search</h1>
+        <div class="flex justify-center items-center gap-1 mb-4">
+            <input type="text" id="username" class="border p-2 rounded-lg w-80 lgl:w-96" placeholder="Enter GitHub Username" autofocus >
+            <button id="searchButton" class="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded-lg cursor-pointer">Search</button>
+        </div>
+        <div id="profile-container"></div>
+        <div id="reposdata"></div>
+
+
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>
